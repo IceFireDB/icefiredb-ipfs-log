@@ -52,9 +52,9 @@ func main() {
     }
     
     log := zap.NewNop()
-	dbname := "iflog-event-kv"
+    dbname := "iflog-event-kv"
     ev, err := iflog.NewIpfsLog(ctx, api, dbname, &iflog.EventOptions{
-    Directory: rootPath,
+        Directory: rootPath,
         Logger:    log,
     })
     if err != nil {
