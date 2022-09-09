@@ -39,7 +39,7 @@ You can easily implement custom data structures such as kv, event, nosql, etc. b
 ```go
 func main() {
     ctx := context.TODO()
-	// disk cache directory
+    // disk cache directory
     rootPath := "./kvdb"
     node, api, err := iflog.CreateNode(ctx, rootPath)
     if err != nil {
