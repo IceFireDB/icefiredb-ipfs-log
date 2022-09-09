@@ -72,9 +72,9 @@ func main() {
     if err := ev.LoadDisk(ctx); err != nil {
         panic(err)
     }
-	kvdb.Put(ctx, "one", "one")
-	kvdb.Get("one")
-	kvdb.Delete(ctx, "one")
+    kvdb.Put(ctx, "one", "one")
+    kvdb.Get("one")
+    kvdb.Delete(ctx, "one")
 }
 ```
 
