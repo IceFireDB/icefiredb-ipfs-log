@@ -27,8 +27,8 @@ func main() {
 	}
 
 	log := zap.NewNop()
-
-	ev, err := iflog.NewIpfsLog(ctx, api, "iflog-event-kv", &iflog.EventOptions{
+	dbname := "iflog-event-kv"
+	ev, err := iflog.NewIpfsLog(ctx, api, dbname, &iflog.EventOptions{
 		Directory: rootPath,
 		Logger:    log,
 	})
