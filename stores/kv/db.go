@@ -105,3 +105,7 @@ func (kv *KeyValueDB) Flush(ctx context.Context) error {
 	}
 	return nil
 }
+
+func (kv *KeyValueDB) Close() {
+	kv.ev.Close()
+}

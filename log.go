@@ -285,6 +285,7 @@ func (ev *IpfsLog) generateEmitter() error {
 }
 
 func (ev *IpfsLog) Close() error {
+	ev.cache.Close()
 	return ev.closeKeystore()
 }
 

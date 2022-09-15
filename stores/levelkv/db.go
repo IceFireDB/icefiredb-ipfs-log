@@ -114,3 +114,8 @@ func (kv *LevelKV) NewIterator(slice *util.Range, ro *opt.ReadOptions) iterator.
 func (kv *LevelKV) GetSnapshot() (*leveldb.Snapshot, error) {
 	return kv.db.GetSnapshot()
 }
+
+func (kv *LevelKV) Close() {
+	kv.db.Close()
+	kv.ev.Close()
+}

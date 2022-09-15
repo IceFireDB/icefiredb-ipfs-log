@@ -39,7 +39,7 @@ func CreateNode(ctx context.Context, repoPath string) (*core.IpfsNode, ifGoIpfsC
 			panic(err)
 		}
 		if err := fsrepo.Init(repoPath, conf); err != nil {
-			panic(err)
+			return nil, nil, err
 		}
 	}
 
@@ -53,7 +53,7 @@ func CreateNode(ctx context.Context, repoPath string) (*core.IpfsNode, ifGoIpfsC
 	if repo, err := fsrepo.Open(repoPath); err == nil {
 		nodeOptions.Repo = repo
 	} else {
-		panic(err)
+		return nil, nil, err
 	}
 
 	node, err := core.NewNode(ctx, nodeOptions)
