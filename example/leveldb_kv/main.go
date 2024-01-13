@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+
 	iflog "github.com/IceFireDB/icefiredb-ipfs-log"
 	"github.com/IceFireDB/icefiredb-ipfs-log/stores/levelkv"
 	"github.com/abiosoft/ishell/v2"
@@ -54,7 +55,7 @@ func main() {
 		Name: "get",
 		Func: func(c *ishell.Context) {
 			if len(c.Args) != 1 {
-				c.Err(errors.New("参数错误"))
+				c.Err(errors.New("Parameter error"))
 				return
 			}
 			val, err := kvdb.Get([]byte(c.Args[0]))
@@ -73,7 +74,7 @@ func main() {
 		Name: "set",
 		Func: func(c *ishell.Context) {
 			if len(c.Args) != 2 {
-				c.Err(errors.New("参数错误"))
+				c.Err(errors.New("Parameter error"))
 				return
 			}
 			err := kvdb.Put(ctx, []byte(c.Args[0]), []byte(c.Args[1]))
@@ -89,7 +90,7 @@ func main() {
 		Name: "delete",
 		Func: func(c *ishell.Context) {
 			if len(c.Args) != 1 {
-				c.Err(errors.New("参数错误"))
+				c.Err(errors.New("Parameter error"))
 				return
 			}
 			err := kvdb.Delete(ctx, []byte(c.Args[0]))
@@ -115,7 +116,7 @@ func main() {
 		Name: "connect",
 		Func: func(c *ishell.Context) {
 			if len(c.Args) != 1 {
-				c.Err(fmt.Errorf("参数错误"))
+				c.Err(fmt.Errorf("Parameter error"))
 				return
 			}
 			bstr, err := ma.NewMultiaddr(c.Args[0])
@@ -133,7 +134,7 @@ func main() {
 				return
 			}
 			node.PeerHost.ConnManager().TagPeer(inf.ID, "keep", 100)
-			c.Println("连接成功！")
+			c.Println("connection succeeded!")
 		},
 	})
 	shell.AddCmd(&ishell.Cmd{

@@ -3,6 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
+	"os"
+
 	iflog "github.com/IceFireDB/icefiredb-ipfs-log"
 	ishell "github.com/abiosoft/ishell/v2"
 	"github.com/ipfs/go-cid"
@@ -10,8 +13,6 @@ import (
 	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/libp2p/go-libp2p-core/peer"
 	ma "github.com/multiformats/go-multiaddr"
-	"log"
-	"os"
 )
 
 var logger *log.Logger
@@ -67,7 +68,7 @@ func addCmd(ctx context.Context, shell *ishell.Shell, node *core.IpfsNode, ev *i
 		Name: "append",
 		Func: func(c *ishell.Context) {
 			if len(c.Args) != 1 {
-				c.Err(fmt.Errorf("参数错误"))
+				c.Err(fmt.Errorf("Parameter error"))
 				return
 			}
 			field := c.Args[0]
@@ -84,7 +85,7 @@ func addCmd(ctx context.Context, shell *ishell.Shell, node *core.IpfsNode, ev *i
 		Name: "get",
 		Func: func(c *ishell.Context) {
 			if len(c.Args) != 1 {
-				c.Err(fmt.Errorf("参数错误"))
+				c.Err(fmt.Errorf("Parameter error"))
 				return
 			}
 			hash := c.Args[0]
@@ -110,7 +111,7 @@ func addCmd(ctx context.Context, shell *ishell.Shell, node *core.IpfsNode, ev *i
 		Name: "connect",
 		Func: func(c *ishell.Context) {
 			if len(c.Args) != 1 {
-				c.Err(fmt.Errorf("参数错误"))
+				c.Err(fmt.Errorf("Parameter error"))
 				return
 			}
 			bstr, err := ma.NewMultiaddr(c.Args[0])
@@ -128,15 +129,9 @@ func addCmd(ctx context.Context, shell *ishell.Shell, node *core.IpfsNode, ev *i
 				return
 			}
 			node.PeerHost.ConnManager().TagPeer(inf.ID, "keep", 100)
-			c.Println("连接成功！")
+			c.Println("connection succeeded!")
 		},
 	})
-	//shell.AddCmd(&ishell.Cmd{
-	//	Name: "dagadd",
-	//	Func: func(c *ishell.Context) {
-	//		node.DAG.Add(ctx)
-	//	},
-	//})
 }
 
 func PrintHostAddress(ha host.Host) {
