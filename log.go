@@ -1,15 +1,19 @@
 package icefiredb_ipfs_log
 
 import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"path"
+	"sync"
+	"time"
+
 	ipfslog "berty.tech/go-ipfs-log"
 	"berty.tech/go-ipfs-log/entry"
 	idp "berty.tech/go-ipfs-log/identityprovider"
 	ifacelog "berty.tech/go-ipfs-log/iface"
 	"berty.tech/go-ipfs-log/io"
 	"berty.tech/go-ipfs-log/keystore"
-	"context"
-	"encoding/json"
-	"fmt"
 	"github.com/IceFireDB/icefiredb-ipfs-log/cache"
 	"github.com/IceFireDB/icefiredb-ipfs-log/cache/cacheleveldown"
 	_ "github.com/IceFireDB/icefiredb-ipfs-log/identityprovider"
@@ -17,17 +21,14 @@ import (
 	"github.com/ipfs/go-cid"
 	"github.com/ipfs/go-datastore"
 	leveldb "github.com/ipfs/go-ds-leveldb"
-	iface "github.com/ipfs/interface-go-ipfs-core"
 	ipfscore "github.com/ipfs/kubo/core"
+	iface "github.com/ipfs/kubo/core/coreiface"
 	"github.com/libp2p/go-eventbus"
-	core "github.com/libp2p/go-libp2p-core"
 	"github.com/libp2p/go-libp2p-core/event"
-	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p/core"
+	"github.com/libp2p/go-libp2p/core/peer"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
-	"path"
-	"sync"
-	"time"
 )
 
 var (

@@ -2,7 +2,8 @@ package pubsub
 
 import (
 	"context"
-	core "github.com/libp2p/go-libp2p-core"
+
+	core "github.com/libp2p/go-libp2p/core"
 )
 
 // PubSubTopic is a pub sub subscription to a topic
