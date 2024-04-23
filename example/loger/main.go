@@ -10,8 +10,8 @@ import (
 	ishell "github.com/abiosoft/ishell/v2"
 	"github.com/ipfs/go-cid"
 	"github.com/ipfs/kubo/core"
-	"github.com/libp2p/go-libp2p-core/host"
-	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p/core/host"
+	"github.com/libp2p/go-libp2p/core/peer"
 	ma "github.com/multiformats/go-multiaddr"
 )
 
@@ -136,7 +136,7 @@ func addCmd(ctx context.Context, shell *ishell.Shell, node *core.IpfsNode, ev *i
 
 func PrintHostAddress(ha host.Host) {
 	// Build host multiaddress
-	hostAddr, _ := ma.NewMultiaddr(fmt.Sprintf("/ipfs/%s", ha.ID().Pretty()))
+	hostAddr, _ := ma.NewMultiaddr(fmt.Sprintf("/ipfs/%s", ha.ID().String()))
 
 	// Now we can build a full multiaddress to reach this host
 	// by encapsulating both addresses:
