@@ -7,7 +7,7 @@ import (
 	iflog "github.com/IceFireDB/icefiredb-ipfs-log"
 	"github.com/IceFireDB/icefiredb-ipfs-log/stores/kv"
 	"github.com/abiosoft/ishell/v2"
-	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p/core/peer"
 	ma "github.com/multiformats/go-multiaddr"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
@@ -22,7 +22,7 @@ func main() {
 	}
 
 	// Build host multiaddress
-	hostAddr, _ := ma.NewMultiaddr(fmt.Sprintf("/ipfs/%s", node.PeerHost.ID().Pretty()))
+	hostAddr, _ := ma.NewMultiaddr(fmt.Sprintf("/ipfs/%s", node.PeerHost.ID().String()))
 	for _, a := range node.PeerHost.Addrs() {
 		fmt.Println(a.Encapsulate(hostAddr).String())
 	}

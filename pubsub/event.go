@@ -2,13 +2,14 @@ package pubsub
 
 import (
 	"context"
-	core "github.com/libp2p/go-libp2p-core"
 	"sync"
 	"time"
 
-	coreapi "github.com/ipfs/interface-go-ipfs-core"
-	options "github.com/ipfs/interface-go-ipfs-core/options"
-	"github.com/libp2p/go-libp2p-core/peer"
+	core "github.com/libp2p/go-libp2p/core"
+
+	coreapi "github.com/ipfs/kubo/core/coreiface"
+	options "github.com/ipfs/kubo/core/coreiface/options"
+	"github.com/libp2p/go-libp2p/core/peer"
 	"go.uber.org/zap"
 )
 

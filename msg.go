@@ -1,9 +1,10 @@
 package icefiredb_ipfs_log
 
 import (
-	"berty.tech/go-ipfs-log/entry"
 	"encoding/json"
-	core "github.com/libp2p/go-libp2p-core"
+
+	"berty.tech/go-ipfs-log/entry"
+	core "github.com/libp2p/go-libp2p/core"
 )
 
 type LocalWrite struct {
