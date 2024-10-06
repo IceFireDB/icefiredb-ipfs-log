@@ -18,3 +18,6 @@ vendor/
 bin
 test
 data
+example/memory_kv/GDN_NODE1/
+example/memory_kv/GDN_NODE2/
+example/memory_kv/memory_kv
