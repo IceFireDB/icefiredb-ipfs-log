@@ -11,7 +11,7 @@ require (
 	github.com/ipfs/kubo v0.30.0
 	github.com/libp2p/go-libp2p v0.36.4
 	github.com/mr-tron/base58 v1.2.0
-	github.com/multiformats/go-multiaddr v0.13.0
+	github.com/multiformats/go-multiaddr v0.15.0
 	github.com/multiformats/go-multihash v0.2.3
 	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/pkg/errors v0.9.1
