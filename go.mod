@@ -1,8 +1,6 @@
 module github.com/IceFireDB/icefiredb-ipfs-log
 
-go 1.22
-
-toolchain go1.22.2
+go 1.24.0
 
 require (
 	berty.tech/go-ipfs-log v1.10.2
